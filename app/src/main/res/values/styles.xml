@@ -8,4 +8,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="UnselectedTabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">15dp</item>   <!--字体大小-->
+        <item name="android:textColor">@color/textgray</item>   <!--默认字体大颜色-->
+        <item name="textAllCaps">false</item>  <!--是否自动转换成大写(如果是自定义样式必须是false)-->
+    </style>
+
+    <color name="textgray">#757575</color>
 </resources>
