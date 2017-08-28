@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">HwAppStore</string>
+    <string name="permissions_settings">设置</string>
+    <string name="permissions_text">app使用过程中需要添加相应权限，保证app正常使用,可以通过"设置-权限"进行授权</string>
+    <string name="permissions_quit">退出</string>
+    <string name="permissions_help">权限设置</string>
+    <string name="listview_loading">数据加载中...</string>
+    <string name="nomore_loading">没有更多的数据了</string>
+    <string name="refreshing">refreshing...</string>
+    <string name="refresh_done">refresh done</string>
+    <string name="loading_done">加载完成</string>
+    <string name="listview_header_last_time">last update：</string>
 </resources>

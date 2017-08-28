@@ -1,4 +1,4 @@
-package io.scwen7.hwappstore.ui;
+package io.scwen7.hwappstore.ui.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
