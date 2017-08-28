@@ -23,37 +23,37 @@ import android.widget.TextView;
 public class RootFrameLayout extends FrameLayout {
 
     /**
-     *  loading 加载id
+     * loading 加载id
      */
     public static final int LAYOUT_LOADING_ID = 1;
 
     /**
-     *  内容id
+     * 内容id
      */
     public static final int LAYOUT_CONTENT_ID = 2;
 
     /**
-     *  异常id
+     * 异常id
      */
     public static final int LAYOUT_ERROR_ID = 3;
 
     /**
-     *  网络异常id
+     * 网络异常id
      */
     public static final int LAYOUT_NETWORK_ERROR_ID = 4;
 
     /**
-     *  空数据id
+     * 空数据id
      */
     public static final int LAYOUT_EMPTYDATA_ID = 5;
 
     /**
-     *  存放布局集合
+     * 存放布局集合
      */
     private SparseArray<View> layoutSparseArray = new SparseArray();
 
     /**
-     *  布局管理器
+     * 布局管理器
      */
     private StatusLayoutManager mStatusLayoutManager;
 
@@ -83,12 +83,15 @@ public class RootFrameLayout extends FrameLayout {
     }
 
     private void addAllLayoutToRootLayout() {
-        if (mStatusLayoutManager.contentLayoutResId != 0) addLayoutResId(mStatusLayoutManager.contentLayoutResId, RootFrameLayout.LAYOUT_CONTENT_ID);
-        if (mStatusLayoutManager.loadingLayoutResId != 0) addLayoutResId(mStatusLayoutManager.loadingLayoutResId, RootFrameLayout.LAYOUT_LOADING_ID);
+        if (mStatusLayoutManager.contentLayoutResId != 0)
+            addLayoutResId(mStatusLayoutManager.contentLayoutResId, RootFrameLayout.LAYOUT_CONTENT_ID);
+        if (mStatusLayoutManager.loadingLayoutResId != 0)
+            addLayoutResId(mStatusLayoutManager.loadingLayoutResId, RootFrameLayout.LAYOUT_LOADING_ID);
 
         if (mStatusLayoutManager.emptyDataVs != null) addView(mStatusLayoutManager.emptyDataVs);
         if (mStatusLayoutManager.errorVs != null) addView(mStatusLayoutManager.errorVs);
-        if (mStatusLayoutManager.netWorkErrorVs != null) addView(mStatusLayoutManager.netWorkErrorVs);
+        if (mStatusLayoutManager.netWorkErrorVs != null)
+            addView(mStatusLayoutManager.netWorkErrorVs);
     }
 
     private void addLayoutResId(@LayoutRes int layoutResId, int id) {
@@ -98,7 +101,7 @@ public class RootFrameLayout extends FrameLayout {
     }
 
     /**
-     *  显示loading
+     * 显示loading
      */
     public void showLoading() {
         if (layoutSparseArray.get(LAYOUT_LOADING_ID) != null)
@@ -106,7 +109,7 @@ public class RootFrameLayout extends FrameLayout {
     }
 
     /**
-     *  显示内容
+     * 显示内容
      */
     public void showContent() {
         if (layoutSparseArray.get(LAYOUT_CONTENT_ID) != null)
@@ -114,7 +117,7 @@ public class RootFrameLayout extends FrameLayout {
     }
 
     /**
-     *  显示空数据
+     * 显示空数据
      */
     public void showEmptyData(int iconImage, String textTip) {
         if (inflateLayout(LAYOUT_EMPTYDATA_ID)) {
@@ -148,7 +151,7 @@ public class RootFrameLayout extends FrameLayout {
     }
 
     /**
-     *  显示网络异常
+     * 显示网络异常
      */
     public void showNetWorkError() {
         if (inflateLayout(LAYOUT_NETWORK_ERROR_ID))
@@ -156,7 +159,7 @@ public class RootFrameLayout extends FrameLayout {
     }
 
     /**
-     *  显示异常
+     * 显示异常
      */
     public void showError(int iconImage, String textTip) {
         if (inflateLayout(LAYOUT_ERROR_ID)) {
@@ -190,7 +193,8 @@ public class RootFrameLayout extends FrameLayout {
     }
 
     /**
-     *  根据ID显示隐藏布局
+     * 根据ID显示隐藏布局
+     *
      * @param id
      */
     private void showHideViewById(int id) {
@@ -198,13 +202,15 @@ public class RootFrameLayout extends FrameLayout {
             int key = layoutSparseArray.keyAt(i);
             View valueView = layoutSparseArray.valueAt(i);
             //显示该view
-            if(key == id) {
+            if (key == id) {
                 valueView.setVisibility(View.VISIBLE);
-                if(mStatusLayoutManager.onShowHideViewListener != null) mStatusLayoutManager.onShowHideViewListener.onShowView(valueView, key);
+                if (mStatusLayoutManager.onShowHideViewListener != null)
+                    mStatusLayoutManager.onShowHideViewListener.onShowView(valueView, key);
             } else {
-                if(valueView.getVisibility() != View.GONE) {
+                if (valueView.getVisibility() != View.GONE) {
                     valueView.setVisibility(View.GONE);
-                    if(mStatusLayoutManager.onShowHideViewListener != null) mStatusLayoutManager.onShowHideViewListener.onHideView(valueView, key);
+                    if (mStatusLayoutManager.onShowHideViewListener != null)
+                        mStatusLayoutManager.onShowHideViewListener.onHideView(valueView, key);
                 }
             }
         }
@@ -227,7 +233,8 @@ public class RootFrameLayout extends FrameLayout {
             case LAYOUT_ERROR_ID:
                 if (mStatusLayoutManager.errorVs != null) {
                     View view = mStatusLayoutManager.errorVs.inflate();
-                    if (mStatusLayoutManager.errorLayout != null) mStatusLayoutManager.errorLayout.setView(view);
+                    if (mStatusLayoutManager.errorLayout != null)
+                        mStatusLayoutManager.errorLayout.setView(view);
                     retryLoad(view, mStatusLayoutManager.errorRetryViewId);
                     layoutSparseArray.put(id, view);
                     isShow = true;
@@ -238,7 +245,8 @@ public class RootFrameLayout extends FrameLayout {
             case LAYOUT_EMPTYDATA_ID:
                 if (mStatusLayoutManager.emptyDataVs != null) {
                     View view = mStatusLayoutManager.emptyDataVs.inflate();
-                    if (mStatusLayoutManager.emptyDataLayout != null) mStatusLayoutManager.emptyDataLayout.setView(view);
+                    if (mStatusLayoutManager.emptyDataLayout != null)
+                        mStatusLayoutManager.emptyDataLayout.setView(view);
                     retryLoad(view, mStatusLayoutManager.emptyDataRetryViewId);
                     layoutSparseArray.put(id, view);
                     isShow = true;
@@ -252,7 +260,7 @@ public class RootFrameLayout extends FrameLayout {
     }
 
     /**
-     *  重试加载
+     * 重试加载
      */
     private void retryLoad(View view, int id) {
         View retryView = view.findViewById(mStatusLayoutManager.retryViewId != 0 ? mStatusLayoutManager.retryViewId : id);
@@ -260,7 +268,7 @@ public class RootFrameLayout extends FrameLayout {
         retryView.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                mStatusLayoutManager.onRetryListener.onRetry();
+                mStatusLayoutManager.onRetryListener.onRetry(v);
             }
         });
     }
