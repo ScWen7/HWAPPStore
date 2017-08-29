@@ -17,10 +17,11 @@
         android:id="@+id/tab_main"
         android:layout_width="match_parent"
         android:layout_height="@dimen/y80"
+        android:background="@android:color/transparent"
         app:tabIndicatorColor="@color/white"
         app:tabIndicatorHeight="1dp"
         app:tabMode="fixed"
-        app:tabSelectedTextColor="@color/colorPrimary"
+        app:tabSelectedTextColor="@color/white"
         app:tabTextAppearance="@style/UnselectedTabTextAppearance"
         />
 </FrameLayout>

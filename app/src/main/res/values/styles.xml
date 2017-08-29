@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -10,7 +10,7 @@
 
     <style name="UnselectedTabTextAppearance" parent="TextAppearance.Design.Tab">
         <item name="android:textSize">15dp</item>   <!--字体大小-->
-        <item name="android:textColor">@color/textgray</item>   <!--默认字体大颜色-->
+        <item name="android:textColor">@color/white</item>   <!--默认字体大颜色-->
         <item name="textAllCaps">false</item>  <!--是否自动转换成大写(如果是自定义样式必须是false)-->
     </style>
 
