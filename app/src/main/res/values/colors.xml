@@ -5,4 +5,6 @@
     <color name="colorAccent">#FF4081</color>
     <color name="white">#ffffff</color>
     <color name="alpha_white">#66ffffff</color>
+    <color name="backgound_fcfcfc">#fffcfcfc</color>
+    <color name="blue_text_007dff">#ff007dff</color>
 </resources>
