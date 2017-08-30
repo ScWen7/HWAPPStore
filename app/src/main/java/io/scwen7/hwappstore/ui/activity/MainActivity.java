@@ -1,5 +1,6 @@
 package io.scwen7.hwappstore.ui.activity;
 
+import android.Manifest;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -13,6 +14,7 @@ import butterknife.BindView;
 import io.scwen7.hwappstore.R;
 import io.scwen7.hwappstore.base.BaseActivity;
 import io.scwen7.hwappstore.common.utils.UIUtils;
+import io.scwen7.hwappstore.permission.CheckPermissionsForAPI23;
 import io.scwen7.hwappstore.ui.adapter.MainPagerAdapter;
 import io.scwen7.hwappstore.ui.fragment.CatrgoryFragment;
 import io.scwen7.hwappstore.ui.fragment.ManageFragment;
@@ -32,6 +34,9 @@ public class MainActivity extends BaseActivity {
 
     private String[] titles = {"推荐", "分类", "排行", "管理", "我的"};
 
+    //所需要的权限
+    String[] permissions = {Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA};
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_main;
@@ -40,15 +45,21 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initData(Bundle savedInstanceState) {
 
+        //状态栏的处理
         StatusBarUtil.setTranslucentForImageView(this, 0, mTabMain);
 
+        //请求应用所需要的权限
+        new CheckPermissionsForAPI23(this, permissions);
 
         initFragments();
 
+        initViewPager();
+    }
+
+    private void initViewPager() {
         MainPagerAdapter mainPagerAdapter = new MainPagerAdapter(getSupportFragmentManager(), mFragments, titles);
         mViewpagerMain.setAdapter(mainPagerAdapter);
         mTabMain.setupWithViewPager(mViewpagerMain);
-
 
         mViewpagerMain.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -74,7 +85,6 @@ public class MainActivity extends BaseActivity {
 
             }
         });
-
     }
 
     private void initFragments() {

@@ -5,4 +5,17 @@
     <dimen name="statusbar_view_height">0dp</dimen>
     <dimen name="tab_height">@dimen/y80</dimen>
     <dimen name="res_textsize_14dp">14.0dp</dimen>
+    <dimen name="loading_pb_width">@dimen/x140</dimen>
+    <dimen name="loading_pb_height">@dimen/x140</dimen>
+    <dimen name="loading_text_top">10dp</dimen>
+    <dimen name="text_size_12sp">12sp</dimen>
+    <dimen name="no_wifi_top">100dp</dimen>
+    <dimen name="no_wifi_width">66dp</dimen>
+    <dimen name="no_wifi_height">66dp</dimen>
+    <dimen name="res_textsize_13sp">13sp</dimen>
+    <dimen name="alertDialog_width">324dp</dimen>
+    <dimen name="wifi_setting_height">40dp</dimen>
+    <dimen name="wifi_setting_bottom">16dp</dimen>
+    <dimen name="wifi_setting_lef">16dp</dimen>
+    <dimen name="wifi_setting_right">16dp</dimen>
 </resources>

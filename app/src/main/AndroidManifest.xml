@@ -3,6 +3,8 @@
           package="io.scwen7.hwappstore">
 
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
 
     <application
         android:name=".base.AppStoreApplication"
@@ -12,7 +14,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.activity.MainActivity">
-
         </activity>
         <activity android:name=".ui.activity.SplashActivity">
             <intent-filter>
@@ -21,6 +22,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".ui.activity.GuideActivity">
+        </activity>
+        <activity android:name=".permission.PermissionsActivity"/>
     </application>
 
 </manifest>

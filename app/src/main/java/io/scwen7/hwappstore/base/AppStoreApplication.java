@@ -3,7 +3,6 @@ package io.scwen7.hwappstore.base;
 import android.app.Application;
 
 import io.scwen7.hwappstore.common.http.RetrofitClient;
-import io.scwen7.hwappstore.common.utils.CrashHandler;
 import io.scwen7.hwappstore.common.utils.UIUtils;
 
 /**
@@ -18,6 +17,6 @@ public class AppStoreApplication extends Application {
         //初始化资源
         UIUtils.init(this);
         RetrofitClient.init(this);
-        CrashHandler.getInstance().init(this);
+//        CrashHandler.getInstance().init(this);
     }
 }

@@ -7,4 +7,6 @@
     <color name="alpha_white">#66ffffff</color>
     <color name="backgound_fcfcfc">#fffcfcfc</color>
     <color name="blue_text_007dff">#ff007dff</color>
+    <color name="black">#000000</color>
+    <color name="textgray">#757575</color>
 </resources>
