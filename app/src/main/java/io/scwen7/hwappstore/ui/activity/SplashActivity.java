@@ -1,13 +1,13 @@
 package io.scwen7.hwappstore.ui.activity;
 
 import android.os.Bundle;
+import android.view.View;
 
-import butterknife.OnClick;
 import io.scwen7.hwappstore.R;
 import io.scwen7.hwappstore.base.BaseActivity;
 import io.scwen7.hwappstore.common.utils.SPUtils;
 
-public class SplashActivity extends BaseActivity {
+public class SplashActivity extends BaseActivity implements View.OnClickListener{
 
 
     @Override
@@ -25,10 +25,13 @@ public class SplashActivity extends BaseActivity {
             finish();
         }
 
+        findViewById(R.id.enter_button).setOnClickListener(this);
+
     }
 
-    @OnClick(R.id.enter_button)
-    public void onClick() {
+
+    @Override
+    public void onClick(View view) {
         //进入引导页
         SPUtils.putBoolean(this, "isSecond", true);
         startActivity(GuideActivity.class);

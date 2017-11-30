@@ -73,10 +73,12 @@ public class MainActivity extends BaseActivity {
                     mTabMain.setBackgroundColor(Color.TRANSPARENT);
                     mTabMain.setSelectedTabIndicatorColor(Color.WHITE);
                     mTabMain.setTabTextColors(Color.WHITE, Color.WHITE);
+                    StatusBarUtil.setStatusBarDarkMode(MainActivity.this);  //黑色  白字
                 } else {
                     mTabMain.setBackgroundColor(Color.WHITE);
                     mTabMain.setSelectedTabIndicatorColor(UIUtils.getColor(R.color.colorPrimaryDark));
                     mTabMain.setTabTextColors(UIUtils.getColor(R.color.textgray), UIUtils.getColor(R.color.colorPrimaryDark));
+                    StatusBarUtil.setStatusBarLightMode(MainActivity.this);  //白色黑字
                 }
             }
 
